@@ -154,3 +154,14 @@ if os.getenv('RENDER'):
     # CORS pour production
     CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '*').split(',')
     CORS_ALLOW_ALL_ORIGINS = False
+
+# Production settings with dj_database_url
+import dj_database_url
+
+# Override DATABASES with DATABASE_URL if present
+if os.getenv('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+    )

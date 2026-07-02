@@ -13,3 +13,4 @@ PyJWT==2.12.1
 python-dotenv==1.2.2
 sqlparse==0.5.5
 tablib==3.9.0
+dj-database-url==2.3.0
