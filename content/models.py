@@ -1,7 +1,7 @@
 from django.db import models
 
 class HeroSlide(models.Model):
-    image = models.ImageField(upload_to='hero/', blank=True, null=True)
+    image = models.URLField(max_length=500, blank=True, null=True, help_text="URL Cloudinary de l'image")
     title = models.CharField(max_length=200, blank=True)
     subtitle = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True, help_text="Description affichée entre le sous-titre et les boutons")
@@ -37,7 +37,7 @@ class AboutContent(models.Model):
     title = models.CharField(max_length=200, default="L'artisanat africain à son meilleur.")
     subtitle = models.CharField(max_length=100, default="À propos de nous")
     description = models.TextField(default="")
-    image = models.ImageField(upload_to='about/', blank=True, null=True)
+    image = models.URLField(max_length=500, blank=True, null=True, help_text="URL Cloudinary de l'image")
     badge_text = models.CharField(max_length=50, blank=True, default="100% Authentique & fait main")
     badge_value = models.CharField(max_length=20, blank=True, default="100%")
     is_active = models.BooleanField(default=True)
@@ -115,7 +115,7 @@ class Testimonial(models.Model):
 
 class Partner(models.Model):
     name = models.CharField(max_length=100)
-    logo = models.ImageField(upload_to='partners/', blank=True, null=True)
+    logo = models.URLField(max_length=500, blank=True, null=True, help_text="URL Cloudinary du logo")
     description = models.CharField(max_length=200, blank=True)
     website = models.URLField(blank=True, null=True)
     order = models.IntegerField(default=0)

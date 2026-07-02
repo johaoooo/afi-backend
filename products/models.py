@@ -4,7 +4,7 @@ class Categorie(models.Model):
     nom = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='categories/', blank=True, null=True)
+    image = models.URLField(max_length=500, blank=True, null=True, help_text="URL Cloudinary de l'image")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -19,7 +19,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     prix = models.FloatField()
     prix_promo = models.FloatField(blank=True, null=True)
-    images = models.JSONField(default=list)
+    images = models.JSONField(default=list, help_text="Liste des URLs Cloudinary des images")
     stock = models.IntegerField(default=0)
     note = models.FloatField(default=0)
     avis = models.IntegerField(default=0)

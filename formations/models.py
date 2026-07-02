@@ -3,7 +3,7 @@ from django.db import models
 class Formation(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='formations/', blank=True, null=True)
+    image = models.URLField(max_length=500, blank=True, null=True, help_text="URL Cloudinary de l'image")
     duree = models.CharField(max_length=50, blank=True)
     niveau = models.CharField(max_length=50, blank=True)
     places = models.IntegerField(default=0)
